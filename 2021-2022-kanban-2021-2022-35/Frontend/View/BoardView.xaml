@@ -1,0 +1,85 @@
+﻿<Window x:Class="Frontend.View.BoardView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodel="clr-namespace:Frontend.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:BoardViewModel}"
+        mc:Ignorable="d" 
+        Title="BoardView" Height="450" Width="600">
+    <StackPanel Background="#FF427B3F">
+        <Label Content="{Binding Path=Title, Mode=OneTime}" HorizontalAlignment="Center" Foreground="Khaki" FontSize="22" FontWeight="Bold"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0">
+                <TextBox Text="{Binding Path=Board.Backlog.Name, Mode=TwoWay}" BorderBrush="{x:Null}" Background="#FFD0CE10" IsReadOnly="True"/>
+                <TextBox Text="{Binding Path=Board.Backlog.limit, Mode=OneWay}" BorderBrush="{x:Null}" Background="#FFFDC470" IsReadOnly="True" />
+                <ListBox ItemsSource="{Binding Path=Board.Backlog.Tasks}" Background="#FF29CED5">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="#FF003CFF" BorderThickness="1">
+                                <StackPanel Orientation="Vertical" >
+                                    <TextBox Text="{Binding Path=id, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=Title, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=description, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=DueDate, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=creationDate, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=assignee, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1">
+                <TextBox Text="{Binding Path=Board.inProgess.Name, Mode=TwoWay}" BorderBrush="{x:Null}" Background="#FFC5C908" IsReadOnly="True"/>
+                <TextBox Text="{Binding Path=Board.inProgess.limit, Mode=OneWay}" BorderBrush="{x:Null}" Background="#FFFDC470" IsReadOnly="True"/>
+                <ListBox ItemsSource="{Binding Path=Board.inProgess.Tasks}" Background="#FF29CED5" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="#FF003CFF" BorderThickness="1">
+                                <StackPanel Orientation="Vertical" >
+                                    <TextBox Text="{Binding Path=id, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=Title, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=description, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=DueDate, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=creationDate, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=assignee, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="2">
+                <TextBox Text="{Binding Path=Board.done.Name, Mode=OneWay}" BorderBrush="{x:Null}" Background="#FFC5C908"  IsReadOnly="True"/>
+                <TextBox Text="{Binding Path=Board.done.limit, Mode=OneWay}" BorderBrush="{x:Null}" TextChanged="TextBox_TextChanged" Background="#FFFDC470" IsReadOnly="True"/>
+                <ListBox ItemsSource="{Binding Path=Board.done.Tasks}" Background="#FF29CED5" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="#FF003CFF" BorderThickness="1">
+                                <StackPanel Orientation="Vertical" >
+                                    <TextBox Text="{Binding Path=id, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True" />
+                                    <TextBox Text="{Binding Path=Title, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=description, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=DueDate, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=creationDate, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                    <TextBox Text="{Binding Path=assignee, Mode=OneWay}" BorderBrush="{x:Null}" Background="LightGoldenrodYellow" IsReadOnly="True"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </StackPanel>
+
+
+        </Grid>
+
+        <Button Content="return to Boards" Click="return_Button"  />
+        <Button Content="Logout" Click="Logout_Click"  HorizontalAlignment="Stretch" />
+    </StackPanel>
+</Window>
